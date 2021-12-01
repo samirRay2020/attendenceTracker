@@ -1,0 +1,33 @@
+<!DOCTYPE html>    
+<html>    
+<head>    
+    <title>Login Form</title>    
+    <link rel="stylesheet"  href="/styles/style.css">    
+</head>    
+<body>   
+        <div class="login"> 
+            <h2>Login</h2>      
+            <form action="/" method="POST">    
+                <label><b>Email</b></label>    
+                <input type="text" name="username" id="Uname" placeholder="Email">    
+                <br><br>    
+                <label><b>Password</b></label>    
+                <input type="Password" name="password" id="Pass" placeholder="Password">    
+                <br><br>  
+                <div class="btn-head"> <button class="btn" type="submit">Log In</button> </div>         
+                <br><br>    
+            </form> 
+
+        </div> 
+        <br>
+       
+        <div class="btn-head"> <button class="btn" id="login-page-register" type="submit">Click here if new user</button> </div>
+       
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>
+    $("#login-page-register").click(function(err){
+        location.href = "/register";
+    }) 
+</script>   
+</body>    
+</html>  

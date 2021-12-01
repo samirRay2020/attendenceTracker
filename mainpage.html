@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendence Tracker</title>
+    <link rel="stylesheet"  href="/styles/style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/> 
+</head>
+
+<body>
+      <div class="main-header">
+      <div class="add-btn"><i class="fas fa-plus"></i></div>    
+     <div id="logout-btn"><a href="/logout" class="btn" role="button">Log Out</a>  </div>
+      </div>  
+     <div class="complete-body">   
+    </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script>
+    let i = 0;
+    $(".add-btn").click(function(err){
+      const html = `
+      <form action="/mainpage" method="POST">
+         <div class="complete-sub-body-${i}">
+          <label>Enter meeting Id</label>
+          <input type="text" name="meetingid"  placeholder="Meeting Id">
+          <label>Enter meeting host name</label>
+          <input type="text" name="meetinghost"  placeholder="Meeting host">
+          <label>Enter meeting duration</label>
+          <input type="text" name="meetingduration"  placeholder="Meeting duration">
+          <div class="space-for-excel-url"></div>
+          
+          <button class="btn" type="submit">Submit</button> 
+          <i class="fas fa-trash-alt" id="no-${i}"></i>
+        </div>
+      </form>`
+        $(".complete-body").append(html); 
+    
+      document.getElementById(`no-${i}`). addEventListener("click", function(){
+         let currId = this.id.split('-')[1];
+         $(`.complete-sub-body-${currId}`).remove();
+      });
+        i++;
+    });
+   
+</script>
+</body>
+</html>
